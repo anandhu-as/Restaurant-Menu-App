@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-import Menu from './Menu'
-import Categories from './categories'
-import items from './data'
-import "./App.css"
-
+import React, { useState } from "react";
+import Menu from "./Components/Menu";
+import Categories from "./Components/Categories";
+import items from "./data";
+import "./styles/App.css"
 function App() {
-	return <>
+  const [menuItems, setMenuItems] = useState(items);
+  const filterItems = () => {};
+  return (
     <main>
-	<section className="menu section">
-		<div className="title">
-			<h2>our menu</h2>
-			<div className="underline"></div>
-		</div>
-		<Categories />
-		<Menu items={items} />
-	</section>
-</main>
-    </>
+      <section className="menu section">
+        <div className="title">
+          <h2>our menu</h2>
+          <div className="underline"></div>
+        </div>
+        <Categories filterItems={filterItems} />
+        <Menu items={menuItems} />
+      </section>
+    </main>
+  );
 }
 
-export default App
+export default App;
