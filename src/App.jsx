@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import Menu from "./Components/Menu";
 import Categories from "./Components/Categories";
 import items from "./data";
-import "./styles/App.css"
-function App() {
+import "./styles/App.css";
+const App = () => {
   const [menuItems, setMenuItems] = useState(items);
-  const filterItems = () => {};
+  const filterItems = (category) => {
+    category === "all"
+      ? setMenuItems(items)
+      : setMenuItems(() => items.filter((item) => item.category === category));
+  };
   return (
     <main>
       <section className="menu section">
@@ -18,6 +22,5 @@ function App() {
       </section>
     </main>
   );
-}
-
+};
 export default App;
