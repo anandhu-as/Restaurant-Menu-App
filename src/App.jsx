@@ -5,6 +5,7 @@ import items from "./data";
 import "./styles/App.css";
 const App = () => {
   const [menuItems, setMenuItems] = useState(items);
+  const categories = ['all',...new Set(items.map(item => item['category']))]
   const filterItems = (category) => {
     category === "all"
       ? setMenuItems(items)
@@ -17,7 +18,7 @@ const App = () => {
           <h2>our menu</h2>
           <div className="underline"></div>
         </div>
-        <Categories filterItems={filterItems} />
+        <Categories filterItems={filterItems}  categories={categories}/>
         <Menu items={menuItems} />
       </section>
     </main>
