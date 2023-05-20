@@ -12,7 +12,9 @@ const App = () => {
       : setMenuItems(() => items.filter((item) => item.category === category));
   };
   return (
+    
     <main>
+         <nav><h1>Restaurant-Menu</h1></nav>
       <section className="menu section">
         <div className="title">
           <h2>our menu</h2>
